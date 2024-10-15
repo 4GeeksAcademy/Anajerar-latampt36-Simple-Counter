@@ -1,26 +1,39 @@
 import React from "react";
+import {ResetButton, Stop, Resume} from "./digit.jsx"
+import PropTypes from "prop-types";
+
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
 
+const reset = () => {<button>Reset</button>
+};
+
 //create your first component
-const Home = () => {
+const Home = (props) => {
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+	<>	
+		<div className="d-flex justify-content-center fs-1 fw-bolder bg-dark text-light m-3 p-3">
+			<i class="far fa-clock m-3 p-3"></i>
+			<span className="m-3 p-3">{props.digFive}</span>
+			<span className="m-3 p-3">{props.digFour}</span>
+			<span className="m-3 p-3">{props.digThree}</span>
+			<span className="m-3 p-3">{props.digTwo}</span>
+			<span className="m-3 p-3">{props.digOne}</span>
+			<span className="m-3 p-3">{props.digZero}</span>		
 		</div>
+		<div>
+			<Stop/>
+			<Resume/>
+			<ResetButton/>
+		</div>
+	</>
 	);
 };
 
+
+
+
 export default Home;
+
+//<h1 className="bg-dark text-light">I'm in the home</h1>
