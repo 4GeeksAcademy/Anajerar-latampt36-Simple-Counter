@@ -1,30 +1,17 @@
 import React from "react";
 
-export const ResetButton = () => { 
+const DigitDisplay = (props) => { 
+    
+    let digits = [0,0,0,0,0,0];
+    const display = digits.map((ds,indx)=>
+                                    Math.floor(props.count % (10**(indx+1)) / (10**indx))                                           
+                                ).reverse()
+
     return (
-    <button>Reset</button>
+        <div className="d-flex justify-content-center fs-1 fw-bolder bg-dark text-light m-3 p-3">
+            <i className="far fa-clock m-3 p-3"></i>
+            {display.map((dgt,indx)=>{return (<span className="m-3 p-3" key={indx}>{dgt}</span> )})}		
+        </div>
 )}
 
-export const Stop = () => {
-    return (
-        <button>Stop</button>
-    )
-}
-
-export const Resume = () => {
-    return (
-        <button>Resume</button>
-    )
-}
-
-export const Countdown = () => {
-    return (
-        <button>Countdown</button>
-    )
-}
-
-export const TimeAlert = () => {
-    return (
-        <button>TimeAlert</button>
-    )
-}
+export default DigitDisplay
